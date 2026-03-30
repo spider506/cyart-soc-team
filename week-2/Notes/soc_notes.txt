@@ -1,0 +1,112 @@
+SOC WEEK 2 NOTES
+
+1. Alert Priority Levels
+   Alerts are categorized based on severity:
+
+* Critical: Ransomware, full system compromise
+* High: Unauthorized access or admin login
+* Medium: Suspicious activity like brute-force attempts
+* Low: Informational alerts like port scans
+
+CVSS (Common Vulnerability Scoring System) is used to determine severity.
+
+---
+
+2. Incident Classification
+   Incidents are classified based on type:
+
+* Malware
+* Phishing
+* Brute-force attack
+* DDoS
+
+MITRE ATT&CK framework is used to map attack techniques.
+Example: T1110 – Brute Force
+
+---
+
+3. Alert Triage
+   Alert triage is used to determine whether an alert is real or false positive.
+
+Steps:
+
+* Check source IP
+* Analyze frequency of activity
+* Verify logs
+* Confirm attack pattern
+
+---
+
+4. Wazuh Monitoring
+   Wazuh is a SIEM tool used for monitoring logs and alerts.
+
+Features:
+
+* Real-time alert detection
+* Dashboard visualization
+* Log analysis
+
+---
+
+5. Incident Simulation
+   A brute-force SSH attack was simulated by performing multiple failed login attempts.
+
+Purpose:
+
+* Generate logs
+* Test detection system
+* Practice SOC workflow
+
+---
+
+6. Log Analysis
+   Logs are stored in:
+   /var/log/auth.log
+
+Commands used:
+
+* cat /var/log/auth.log
+* grep ssh
+
+Purpose:
+
+* Identify failed login attempts
+* Detect brute-force attack patterns
+
+---
+
+7. Incident Response
+   Actions taken to stop the attack:
+
+* Applied firewall rule using iptables
+* Blocked suspicious IP
+
+Example:
+sudo iptables -A INPUT -s <IP> -j DROP
+
+---
+
+8. Evidence Collection
+   Evidence collected:
+
+* Logs
+* Alerts
+* Terminal output
+
+SHA256 hashing used to ensure integrity:
+sha256sum /var/log/auth.log
+
+---
+
+9. Incident Response Lifecycle
+   Steps:
+10. Preparation
+11. Identification
+12. Containment
+13. Eradication
+14. Recovery
+15. Lessons Learned
+
+---
+
+END OF NOTES
